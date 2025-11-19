@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCL-90 心理健康测评</title>
+    <style>
+        :root {
+            --bg-color: #FDFCF8;
+            --primary-green: #A3B69E; /* 莫兰迪绿 */
+            --accent-sand: #F2EFE5;
+            --text-dark: #333333;
+            --text-light: #888888;
+            --white: #FFFFFF;
+            --shadow: 0 8px 24px rgba(163, 182, 158, 0.15);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 480px; /* 模拟手机宽度 */
+            margin: 0 auto;
+            background-color: var(--bg-color);
+            min-height: 100vh;
+            padding-bottom: 80px;
+        }
+
+        /* 顶部 Hero */
+        .hero {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 28px;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .tags {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .tag {
+            background-color: var(--accent-sand);
+            color: var(--primary-green);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* 插画占位符 */
+        .illustration {
+            width: 200px;
+            height: 200px;
+            background-color: var(--primary-green);
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 40px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        
+        .illustration::after {
+            content: "🥑";
+            font-size: 80px;
+        }
+
+        /* 卡片通用样式 */
+        .card {
+            background: var(--white);
+            margin: 20px;
+            padding: 24px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::before {
+            content: "";
+            width: 6px;
+            height: 18px;
+            background-color: var(--primary-green);
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        /* 适用人群列表 */
+        .target-list li {
+            list-style: none;
+            margin-bottom: 12px;
+            font-size: 14px;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .target-list li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: var(--primary-green);
+            font-weight: bold;
+        }
+
+        ul { padding: 0; margin: 0; }
+
+        /* 维度 Grid */
+        .dimension-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .dim-item {
+            background-color: var(--bg-color);
+            padding: 10px;
+            border-radius: 12px;
+            font-size: 13px;
+            text-align: center;
+            color: var(--text-dark);
+        }
+
+        /* 底部固定按钮 */
+        .bottom-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            padding: 15px 20px;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: center;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-green);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 14px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.1s;
+            box-shadow: 0 4px 12px rgba(163, 182, 158, 0.4);
+        }
+
+        .btn-primary:active {
+            transform: scale(0.98);
+        }
+
+        .disclaimer {
+            font-size: 12px;
+            color: #999;
+            text-align: center;
+            margin-top: 10px;
+            padding: 0 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="illustration"></div>
+        <h1>SCL-90 心理测评</h1>
+        <p>自动发货 / 在线测试 / 免费报告</p>
+        <div class="tags">
+            <div class="tag">✨ 9大维度</div>
+            <div class="tag">🏥 医院同款</div>
+            <div class="tag">🔒 隐私保护</div>
+        </div>
+    </div>
+
+    <!-- 适合谁测 -->
+    <div class="card">
+        <div class="section-title">适合谁测？</div>
+        <ul class="target-list">
+            <li>近期感觉情绪波动大、压力山大的你</li>
+            <li>想要深入了解自己心理状态、促进成长的你</li>
+            <li>关注自身及家人心理健康状况的你</li>
+            <li>心理咨询前想初步了解问题方向（辅助参考）</li>
+        </ul>
+    </div>
+
+    <!-- 测评简介 -->
+    <div class="card" style="background-color: #F2EFE5;">
+        <div class="section-title">测评简介</div>
+        <p style="font-size: 14px; color: #555; margin-bottom: 0;">
+            SCL-90是世界上最著名的综合心理健康测试表之一。包含90个项目，从感觉、情感、思维、意识等10个因子全面评估你的心理健康状态。
+        </p>
+    </div>
+
+    <!-- 9大维度 -->
+    <div class="card">
+        <div class="section-title">9大维度全面评估</div>
+        <div class="dimension-grid">
+            <div class="dim-item">😔 抑郁/低落</div>
+            <div class="dim-item">😰 焦虑/紧张</div>
+            <div class="dim-item">🤕 躯体化/不适</div>
+            <div class="dim-item">🔄 强迫症状</div>
+            <div class="dim-item">👥 人际敏感</div>
+            <div class="dim-item">😡 敌对/易怒</div>
+            <div class="dim-item">👻 恐怖/恐惧</div>
+            <div class="dim-item">👀 偏执/多疑</div>
+        </div>
+    </div>
+
+    <!-- 测评须知 -->
+    <div class="card">
+        <div class="section-title">测评须知</div>
+        <p style="font-size: 13px; color: #666;">
+            1. 本测评为在线测试，测试完自动出结果报告。<br>
+            2. 结果仅供自评参考，非专业医学诊断。<br>
+            3. 评论区欢迎分享自己的测试结果和症状，大家一起交流互动哦~
+        </p>
+    </div>
+    
+    <div style="height: 20px;"></div>
+
+    <!-- 底部按钮 -->
+    <div class="bottom-bar">
+        <button class="btn-primary">立即开始自测</button>
+    </div>
+</div>
+
+</body>
+</html>
